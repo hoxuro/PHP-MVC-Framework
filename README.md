@@ -85,6 +85,80 @@
 
 <h3>core/Controller.php</h3>
 <p>Antes de empezar a crear la app que será el núcleo de nuestra aplicación creemos Controller.php que será el controlador cuya lógica heredarán todos los controladores de nuestra aplicación. El código es este:</p>
+<img width="422" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/5af749aa-604a-4623-9bd8-29e520d5f9e8">
+
+<h3>core/config.php</h3>
+<p>En config vamos a tener principalmente constantes de configuración de nuestro servidor y la base de datos que vayamos a usar para el proyecto.</p>
+<img width="889" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/4b15aa99-f150-41f4-b98f-49e1195d3130">
+
+<h3>core/functions.php</h3>
+<p>En functions vamos a tener funciones que iremos reutilizando en distintos ficheros.</p>
+<img width="530" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/2c4726c8-38cc-43da-b057-0fbd2b8702a9">
+
+<h3>core/Database.php</h3>
+<p>En este fichero vamos a crear el Trait Database que nos servirá para conectarnos a la base de datos además, aunque podemos crearla como clase pero no tiene ninguna dificultad.</p>
+<h4>Traits</h4>
+<p>Un trait y una class son parecidos solo que un trait a diferencia de una clase no se puede instanciar debe ser usado con use. Esto nos permitirá más adelante en los modelos usar la base de datos sin gastar el extends por si nos hiciera falta.</p>
+<img width="525" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/8c5a6b48-7d52-4c0e-b1e6-cb58d121a504">
+<img width="520" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/276ec849-9bf1-4f9e-86eb-6a949db0f6c7">
+<img width="526" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/901cfb86-7a0d-40f9-b1df-dd56f8c3b31b">
+
+<h3>core/App.php</h3>
+<p>Dentro del fichero app es donde se ejecutará verdaderamente nuestra aplicación. Se sanitizar la url en que se encuentre el usuario y con ello se crearán los controladores con sus métodos de acción correspondientes. El controlador por defecto será home.php y su método de acción por defecto será index().</p>
+
+<img width="530" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/87a1c337-b5ff-4142-a2af-126269947d0b">
+<img width="528" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/beb477ce-b458-4ba2-8d91-eacfd5c65bd4">
+
+
+<h3>controllers</h3>
+<p>En la carpeta controllers crearemos los controladores específicos que heredarán del
+Controller del core, y que tendrán métodos de acción donde como en cada controller de MVC nos comunicaremos con los modelos para obtener datos y el resultado de estos los mostraremos a partir de vistas. El controlador por defecto es home.php.</p>
+
+<h3>models</h3>
+<p>En la carpeta models crearemos los modelos que usaremos. En particular, estos modelos usarán un Trait que es la conexión con la base de datos. <b>Explicación en el apartado de la base de datos.</b></p>
+
+<h4>Model</h4>
+<p>Model es el modelo que hemos usado para esta aplicacion de ejemplo para nuestro framework de php en él se hace uso de conexiones con la base de datos para obtener, modificar o eliminar información de la misma. El código dentro de model es este:</p>
+<img width="696" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/5965edc2-2034-4643-916e-3def78acad95">
+<img width="696" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/a4f43225-55b1-4152-9c57-ec94f02ec50a">
+<img width="693" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/2bfe90c6-4bed-4eca-ae99-ef11b61220ae">
+<img width="698" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/613f2b59-eb83-4e8e-a2b2-1f71c7069204">
+<img width="700" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/1b30e36a-769f-4e25-ac04-faa455258745">
+
+
+<h3>views</h3>
+<p>Dentro de views crearemos las vistas. Que como ya deberíamos saber, en el MVC se utilizan para mostrar el resultado de las operaciones realizadas entre el controlador y el modelo.</p>
+
+<h2>Ruteo sencillo de la URL</h2>
+<p>Qué es lo que queremos hacer, vamos a hacer que cuando un usuario introduzca una url que no existe en nuestra aplicación que no salga error sino que lo redirija a una página de ERROR 404 NOT FOUND. </p>
+<p>También estableceremos el controlador y su método por defecto en caso de que no se hayan introducido parámetros extra en la URL.</p>
+<p>El archivo .htaccess nos permitirá hacer que si el usuario introduce el nombre de un fichero o de un directorio de manera correcta por URL permita mostrarlo pero en caso contrario queremos que nos redirija a la url por defecto. Y si es incorrecto se usará el controlador _404.php para mostrar que no se ha encontrado el recurso que busca. El contenido es:</p>
+<img width="818" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/fd413bf8-2006-45b8-80de-0f6011c058df">
+
+<h2>Direccion por defecto</h2>
+<p>$controller será el controlador por defecto, es decir cuando entremos en la aplicación se ejecutará el archivo controlador home.php</p>
+<p>$method será el método del accion de ese controlador que se ejecute por defecto al entrar en la aplicación.</p>
+<p>$params será un array de tantos elementos como subdirectorios tenga la url a partir del nombre public/ nos servirá para introducir parámetros a partir de la url. Y se ejecutarán en una callback que veremos más adelante.</p>
+<p>E.g: si la url es mvc/public/carpeta/archivo.php $params será array(‘carpeta’, ‘archivo.php’); El MVC usa PHP con POO recuerda.</p>
+
+<h2>Sanitización de la URL</h2>
+<p>Con esta función obtendremos de manera sanitizada los elementos que hayamos puesto después de public y que para que nos hagamos una idea funcionará de la siguiente manera: miAplicacion/public/<nombre_controlador>/<nombre_metodo_controllador>/param1/param2/param…</p>
+<p>Si la url no existe, nos pondrá el controlador por defecto y su método.</p>
+<img width="916" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/3b8359c6-c555-4264-b5ee-99b3b8fb0bdc">
+
+<h2>"Construcción" de la app</h2>
+<p>Finalmente, dentro del constructor de nuestra aplicación, vamos a crear la lógica cuya función será hacer uso de un controlador por defecto o introducido por el usuario y también de un método y pasándole los parámetros que veamos correspondientes será así.</p>
+<img width="702" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/739a879d-aa6c-4b6a-b9a8-98b13f620b63">
+<img width="697" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/3611dfe0-e9e4-4bc0-a965-cb572c26b309">
+
+<h2>Ejecución del controlador con su método de acción</h2>
+<p>Una vez hayamos hecho uso de call_user_func_array con el controlador y su método de acción que queramos y los parámetros, se ejecuta el método de acción de ese controlador y ya pasamos al fichero por ejemplo con el controlador home y su método de acción saludar con el parámetro $nombre.</p>
+<p>El código del controlador home.php para un TODO LIST en PHP sería este:</p>
+<img width="451" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/f481443e-0fc2-4ef9-9516-1956bbdfd480">
+
+
+
+
 
 
 
