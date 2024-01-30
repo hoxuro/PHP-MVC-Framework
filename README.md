@@ -129,11 +129,12 @@ Controller del core, y que tendrán métodos de acción donde como en cada contr
 <h3>views</h3>
 <p>Dentro de views crearemos las vistas. Que como ya deberíamos saber, en el MVC se utilizan para mostrar el resultado de las operaciones realizadas entre el controlador y el modelo.</p>
 
-<h2>Ruteo sencillo de la URL</h2>
+<h1>Ruteo sencillo de la URL</h1>
 <p>Qué es lo que queremos hacer, vamos a hacer que cuando un usuario introduzca una url que no existe en nuestra aplicación que no salga error sino que lo redirija a una página de ERROR 404 NOT FOUND. </p>
 <p>También estableceremos el controlador y su método por defecto en caso de que no se hayan introducido parámetros extra en la URL.</p>
 <p>El archivo .htaccess nos permitirá hacer que si el usuario introduce el nombre de un fichero o de un directorio de manera correcta por URL permita mostrarlo pero en caso contrario queremos que nos redirija a la url por defecto. Y si es incorrecto se usará el controlador _404.php para mostrar que no se ha encontrado el recurso que busca. El contenido es:</p>
-<img width="818" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/fd413bf8-2006-45b8-80de-0f6011c058df">
+<img width="602" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/47300bcd-6c03-484d-b4f3-ebf0f48259f3">
+
 
 <h2>Direccion por defecto</h2>
 <p>$controller será el controlador por defecto, es decir cuando entremos en la aplicación se ejecutará el archivo controlador home.php</p>
@@ -144,23 +145,56 @@ Controller del core, y que tendrán métodos de acción donde como en cada contr
 <h2>Sanitización de la URL</h2>
 <p>Con esta función obtendremos de manera sanitizada los elementos que hayamos puesto después de public y que para que nos hagamos una idea funcionará de la siguiente manera: miAplicacion/public/<nombre_controlador>/<nombre_metodo_controllador>/param1/param2/param…</p>
 <p>Si la url no existe, nos pondrá el controlador por defecto y su método.</p>
-<img width="916" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/3b8359c6-c555-4264-b5ee-99b3b8fb0bdc">
+<img width="677" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/d24c8384-d391-4c6c-869c-749bed9f07a7">
 
-<h2>"Construcción" de la app</h2>
+
+<h1>Creación del core del framework</h1>
 <p>Finalmente, dentro del constructor de nuestra aplicación, vamos a crear la lógica cuya función será hacer uso de un controlador por defecto o introducido por el usuario y también de un método y pasándole los parámetros que veamos correspondientes será así.</p>
-<img width="702" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/739a879d-aa6c-4b6a-b9a8-98b13f620b63">
-<img width="697" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/3611dfe0-e9e4-4bc0-a965-cb572c26b309">
+<img width="657" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/891e5047-ecee-4010-b1c2-29f04eba2e83">
+<img width="948" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/cf1917de-9186-4862-8049-bd2009c9f01c">
+
 
 <h2>Ejecución del controlador con su método de acción</h2>
 <p>Una vez hayamos hecho uso de call_user_func_array con el controlador y su método de acción que queramos y los parámetros, se ejecuta el método de acción de ese controlador y ya pasamos al fichero por ejemplo con el controlador home y su método de acción saludar con el parámetro $nombre.</p>
 <p>El código del controlador home.php para un TODO LIST en PHP sería este:</p>
 <img width="451" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/f481443e-0fc2-4ef9-9516-1956bbdfd480">
 
+<h1>Conexión a  bases de datos con PDO</h1>
+<p>Para implementar la base de datos en nuestro MVC vamos a usar PDO.</p>
 
+<h2>Config.php</h2>
+<p>Recordemos que en config.php vamos a definir constantes que tendrán los datos necesarios para realizar una conexión con PDO.</p>
 
+<img width="931" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/b145d798-5ab0-49ad-9ca9-449d15d710fc">
 
+<h2>Database.php</h2>
+<p>Database.php nos va a permitir crear una conexión con PDO a nuestra base de datos, además los parámetros los definiremos como constantes en config.php.</p>
 
+<h3>Traits</h3>
+<p>Un trait y una class son parecidos solo que un trait a diferencia de una clase no se puede instanciar debe ser usado con use. Esto nos permitirá más adelante en los modelos usar la base de datos sin gastar el extends por si nos hiciera falta.</p>
+<img width="644" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/f715f795-c667-4aa2-bdac-ca2d6a244d6f">
+<img width="627" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/9886ed75-b9dd-4add-8302-ae1b3ba434ab">
+<img width="621" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/7a3d56a8-5f72-49f5-8baa-6ffec4d8456d">
 
+<h2>Conectando con la Base de Datos</h2>
+<p>Tenemos que crear la base de datos, yo usaré MSQL en phpmyadmin, pero podemos usar el gestor de bases de datos que más nos guste.</p>
+<img width="629" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/cbcc3f0e-4995-424a-b35d-d6afafb9ebda">
+
+<h2>Base de datos en acción</h2>
+<p>Ahora nos vamos al controlador de home.php en el que, gracias a la herencia que recibe de Controller.php, vamos a crear una instancia del modelo que queramos usar y vamos a realizar una serie de operaciones cuyo resultado final mostraremos a través de una vista.</p>
+<img width="561" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/5cb025f6-3ab9-4989-91a5-84f0a81cf714">
+
+<h2>¿Qué hace el código de arriba?</h2>
+<ol>
+  <li>Instancia un nuevo modelo Model.php</li>
+  <li>Si $_POST tiene establecido add quiere decir que se han pasado los datos para crear un nuevo TODO</li>
+  <li>Invoca el método addTodo</li>
+  <li>Invoca el método refreshTodo para actualizar los todos de esa instancia de Modelo</li>
+  <li>Finalmente muestra el resultado al usuario usando la vista index.php en la carpeta home dentro de la carpeta views. <b>Esta dirección no tiene nada que ver con el ruteo de URL que hemos hecho antes</b>.</li>
+</ol>
+
+<h1>FIN</h1>
+<p>Y esto ha sido todo, cómo crear un framework PHP que hace uso del modelo vista controlador y con un ruteo. Podéis descargar el código fuente bajo licencia MIT en caso de que queráis realizar vuestros propios proyectos. Nos vemos!</p>
 
 
 
