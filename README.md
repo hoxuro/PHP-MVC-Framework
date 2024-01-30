@@ -194,7 +194,7 @@ Controller del core, y que tendrán métodos de acción donde como en cada contr
 </ol>
 
 <h1>FIN</h1>
-<p>Y esto ha sido todo, cómo crear un framework PHP que hace uso del modelo vista controlador y con un ruteo. Podéis descargar el código fuente bajo licencia MIT en caso de que queráis realizar vuestros propios proyectos. Nos vemos!</p>
+<p>Y esto ha sido todo, cómo crear un framework PHP que hace uso del modelo vista controlador y con un ruteo. Podéis descargar el código fuente en caso de que queráis realizar vuestros propios proyectos. Nos vemos!</p>
 
 
 
