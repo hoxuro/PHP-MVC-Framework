@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  max-width: 80%;
+  margin: 5rem auto 0 auto;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 2rem;
+}
+
+input[type="text"] {
+  border-radius: 0;
+  border: none;
+  outline: none;
+  border: 1px solid black;
+}
+
+.main-input {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  width: 500px;
+  text-align: center;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+}
+
+.btn-submit {
+  font-size: 1.5rem;
+  background-color: rgb(31, 145, 232);
+  padding: 0.5rem;
+  color: #fff;
+  border: 1px solid rgb(31, 145, 232);
+}
+
+.btn-submit:hover,
+.btn-submit:active {
+  background-color: rgb(26, 118, 188);
+  border: 1px solid rgb(26, 118, 188);
+}
+
+.btn-delete {
+  font-size: 1rem;
+  background-color: red;
+  padding: 0.5rem;
+  color: #fff;
+  border: 1px solid red;
+  font-weight: 500;
+}
+
+.btn-delete:hover,
+.btn-delete:active {
+  background-color: rgb(231, 0, 0);
+  border: 1px solid rgb(231, 0, 0);
+}
+
+.btn-edit {
+  font-size: 1rem;
+  background-color: rgb(31, 145, 232);
+  border: 1px solid rgb(31, 145, 232);
+
+  margin-right: 5px;
+
+  padding: 0.5rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.btn-edit:hover,
+.btn-edit:active {
+  background-color: rgb(26, 118, 188);
+  border: 1px solid rgb(26, 118, 188);
+}
+
+.todos {
+  margin-top: 2rem;
+}
+
+.todo {
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+  background-color: #ddd;
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.todo__checkbox {
+  flex: 0 0 5%;
+  width: 30px;
+  height: 30px;
+}
+
+.todo__description {
+  flex: 1 0 60%;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: #ddd;
+  border: none !important;
+  outline: none;
+  color: #000;
+}
+
+.todo__btn {
+  flex: 1 0 10%;
+}
+
+input[type="checkbox"]:checked + .todo__description {
+  text-decoration-line: line-through;
+}
