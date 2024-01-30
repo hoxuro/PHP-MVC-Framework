@@ -1,4 +1,6 @@
 <h1>Framework-PHP-usando-MVC</h1>
+<img width="639" alt="image" src="https://github.com/hoxuro/Framework-PHP-usando-MVC/assets/86883781/d956aede-7fd7-4e86-8005-1aeda9b983ea">
+
 <p>En este proyecto que he realizado, he creado mi propio framework de PHP, basándose en el patrón de arquitectura de software Modelo-Vista-Controlador, con el objetivo de crear una aplicación que me facilitase la creación de aplicaciones en PHP sin delegar acciones a alguna dependencia y así aprender en profundidad PHP.</p>
 <p>Para seguir este proyecto, deberías conocer PHP en profundidad, manejo de servidores Apache, programación orientada a objetos y entender cómo funciona el patrón de arquitectura de software Modelo-Vista-Controlador.</p>
 
