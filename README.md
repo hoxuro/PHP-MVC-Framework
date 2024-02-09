@@ -13,44 +13,42 @@
 </ol>
 
 <h2>Directorios y ficheros del framework y su significado</h2>
-<p>
-<nombre_de_tu_proyecto>/<br/>
-│<br/>
-├── app/<br/>
-│   ├── controllers/<br/>
-│   │   ├── home.php<br/>
-│   │   └── _404.php<br/>
-│   ├── core/<br/>
-│   │   ├─ App.php<br/>
-│   │   ├─ Controller.php<br/>
-│   │   ├─ config.php<br/>
-│   │   ├─ functions.php<br/>
-│   │   └─ Database.php<br/>
-│   ├── models/<br/>
-│   │   └── User.php<br/>
-│   ├── views/<br/>
-│   │   ├── home<br/>
-│   │   │	  └── index.php<br/>
-│   │   └── _404<br/>
-│   │   	  └── index.php<br/>
-│   └─── init.php<br/>
-│<br/>
-├── public/<br/>
-│   ├── index.php<br/>
-│   ├── assets/<br/>
-│   │   ├── css/<br/>
-│   │   │   └── style.css<br/>
-│   │   ├── sass/<br/>
-│   │   │   └── main.scss<br/>
-│   │   ├── js/<br/>
-│   │   │   └── script.js<br/>
-│   │   └── images/<br/>
-│   │       └── logo.png<br/>
-│   └── .htaccess<br/>
-│<br/>
-└── README.md<br/>
-</p>
 
+```arduino
+<nombre_de_tu_proyecto>
+│ 
+├── app/
+│   ├── controllers/
+│   │   ├── home.php
+│   │   └── _404.php
+│   ├── core/
+│   │   ├── App.php
+│   │   ├── Controller.php
+│   │   ├── config.php
+│   │   ├── functions.php
+│   │   └── Database.php
+│   ├── models/
+│   │   └── User.php
+│   ├── views/
+│   │   ├── home/
+│   │   │   └── index.php
+│   │   └── _404/
+│   │       └── index.php
+│   └── init.php
+├── public/
+│   ├── index.php
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   ├── sass/
+│   │   │   └── main.scss
+│   │   ├── js/
+│   │   │   └── script.js
+│   │   └── images/
+│   │       └── logo.png
+│   └── .htaccess
+└── README.md
+```
 
 <h2>Directorio raíz</h2>
 <p>Dentro del directorio raíz, que tendrá el nombre del proyecto que vamos realizar, tenemos 2 carpetas public y app.</p>
@@ -194,13 +192,4 @@ Controller del core, y que tendrán métodos de acción donde como en cada contr
 </ol>
 
 <h1>FIN</h1>
-<p>Y esto ha sido todo, cómo crear un framework PHP que hace uso del modelo vista controlador y con un ruteo. Podéis descargar el código fuente en caso de que queráis realizar vuestros propios proyectos. Nos vemos!</p>
-
-
-
-
-
-
-
-
-
+<p>Y esto ha sido todo, cómo crear un framework PHP que hace uso del modelo vista controlador y con un ruteo básico.</p>
